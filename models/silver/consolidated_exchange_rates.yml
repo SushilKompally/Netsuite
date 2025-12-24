@@ -41,4 +41,4 @@ models:
         data_type: number
       - name: silver_load_date
         description: "Timestamp when the row was loaded into the Silver layer."
-        data_type: timestamp_ntz
+        data_type: timestamp_ltz
