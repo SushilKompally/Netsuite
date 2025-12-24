@@ -1,0 +1,89 @@
+
+version: 2
+
+models:
+  - name: transaction_lines
+    description: "NetSuite transaction lines (Silver layer)."
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: TRANSACTION_LINE_ID
+        data_type: number
+        tests: [not_null, unique]
+
+      - name: ACCOUNTING_LINE_TYPE
+        data_type: varchar
+      - name: ACTUAL_SHIP_DATE
+        data_type: timestamp_ntz
+      - name: BILLED_DATE
+        data_type: timestamp_ntz
+      - name: BILLING_SCHEDULE_ID
+        data_type: number
+      - name: CLASS_ID
+        data_type: number
+      - name: CLOSE_DATE
+        data_type: timestamp_ntz
+      - name: CREATED_FROM_TRANSACTION_ID
+        data_type: number
+      - name: DEPARTMENT_ID
+        data_type: number
+      - name: ENTITY_ID
+        data_type: number
+      - name: REVENUE_ACCOUNT_NAME
+        data_type: number          
+      - name: ITEM_ID
+        data_type: number
+      - name: ITEM_TYPE
+        data_type: varchar
+      - name: LINE_LASTMODIFIED_DATE
+        data_type: timestamp_ntz
+        tests: [not_null]
+      - name: LINE_SEQUENCE_NUMBER_ID
+        data_type: number
+      - name: LOCATION_ID
+        data_type: number
+      - name: PAYMENT_METHOD_ID
+        data_type: number
+      - name: PRICE_ID
+        data_type: number
+      - name: ZAB_REVENUE_DETAIL_ID
+        data_type: number
+      - name: SUBSIDIARY_ID
+        data_type: number
+      - name: TRANSACTION_ID
+        data_type: number
+      - name: UNIQUE_KEY
+        data_type: number
+      - name: UNIT_ID
+        data_type: number
+
+      - name: FOREIGN_AMOUNT
+        data_type: number
+      - name: NET_AMOUNT
+        data_type: number
+      - name: ORDER_PRIORITY
+        data_type: varchar
+      - name: QUANTITY
+        data_type: number
+      - name: RATE
+        data_type: number
+
+      - name: IS_BILLABLE
+        data_type: boolean
+      - name: IS_CLOSED
+        data_type: boolean
+      - name: IS_COGS
+        data_type: boolean
+      - name: IS_FULLY_SHIPPED
+        data_type: boolean
+      - name: TAX_LINE
+        data_type: boolean
+      - name: TRANSACTION_DISCOUNT
+        data_type: boolean
+
+      - name: MEMO
+        data_type: varchar
+
+      - name: SILVER_LOAD_DATE
+        data_type: timestamp_ntz     

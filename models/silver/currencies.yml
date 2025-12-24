@@ -1,0 +1,28 @@
+
+version: 2
+
+models:
+  - name: currencies
+    description: "NetSuite currencies (Silver layer)."
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: currency_id
+        data_type: number
+        tests: [not_null, unique]
+      - name: last_modified_date
+        data_type: timestamp_ntz
+      - name: exchange_rate
+        data_type: number
+      - name: is_inactive
+        data_type: boolean
+      - name: is_base_currency
+        data_type: boolean
+      - name: currency_name
+        data_type: varchar
+      - name: display_symbol
+        data_type: varchar
+      - name: silver_load_date
+        data_type: timestamp_ntz
+

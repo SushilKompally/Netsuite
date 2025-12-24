@@ -8,7 +8,7 @@
     - record_creation_column (string): column/expression representing record creation timestamp (default: 'lastupdated')
   
 ------------------------------------------------------------------------------#}
-{% macro source_metadata(tool_name=var('tool_name'), record_creation_column="lastupdated") -%}
+{% macro source_metadata(tool_name=var('tool_name'), record_creation_column="last_updated") -%}
 
   {# Normalize and validate tool_name #}
   {% set tool_name_lc = tool_name | lower %}
@@ -22,8 +22,7 @@
 
   {% if tool_name_lc == "fivetran" -%}
     -- Types: tool_name:string='fivetran', record_creation_column:string
-    lastupdated AS _source_timestamp,
-    COALESCE(TRY_TO_BOOLEAN(ISDELETED), FALSE) AS is_deleted
+    last_updated AS _source_timestamp,
 
   {%- elif tool_name_lc == "stitch" -%}
     -- Types: tool_name:string='stitch', record_creation_column:string

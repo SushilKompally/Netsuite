@@ -1,0 +1,50 @@
+
+version: 2
+
+models:
+  - name: entity
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: internal_entity_id
+        data_type: number
+        tests: [not_null, unique]
+      - name: contact_id
+        data_type: number
+      - name: customer_id
+        data_type: number
+      - name: employee_id
+        data_type: number
+      - name: group_id
+        data_type: number
+      - name: parent_id
+        data_type: number
+      - name: partner_id
+        data_type: number
+      - name: vendor_id
+        data_type: number
+      - name: email
+        data_type: varchar
+      - name: entity_id
+        data_type: varchar 
+      - name: entity_number
+        data_type: number
+      - name: entity_title
+        data_type: varchar
+      - name: first_name
+        data_type: varchar
+      - name: last_name
+        data_type: varchar
+      - name: entity_type
+        data_type: varchar
+      - name: is_inactive
+        data_type: boolean
+      - name: is_person
+        data_type: boolean
+      - name: date_created
+        data_type: date
+      - name: last_modified_date
+        data_type: timestamp_ntz
+      - name: silver_load_date
+        data_type: timestamp_ntz
