@@ -37,6 +37,7 @@ SELECT
 
     -- DETAILS / KEYS
     {{ clean_string('accountinglinetype') }}         AS accounting_line_type,
+    {{ clean_string('transactionlinetype') }}         AS transaction_line_type,
     actualshipdate           AS actual_ship_date,
     billeddate              AS billed_date,
     {{ safe_integer('billingschedule') }}            AS billing_schedule_id,

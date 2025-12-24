@@ -22,6 +22,6 @@ models:
       - name: period_name
         data_type: varchar
       - name: year
-        data_type: number
+        data_type: text
       - name: silver_load_date
-        data_type: timestamp_ntz
+        data_type: timestamp_ltz
