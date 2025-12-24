@@ -1,0 +1,55 @@
+
+version: 2
+
+sources:
+  - name: netsuite_bronze
+    database: '{{ var("source_database_name") }}'
+    schema: bronze
+    tables:
+      - name: accounting_periods
+        identifier: accounting_periods
+
+      - name: accounts
+        identifier: accounts
+
+      - name: classification
+        identifier: CLASSIFICATION
+
+      - name: consolidated_exchange_rates
+        identifier: CONSOLIDATED_EXCHANGE_RATES
+
+      - name: currencies
+        identifier: CURRENCIES
+
+      - name: currencyrates
+        identifier: CURRENCYRATES
+
+      - name: departments
+        identifier: DEPARTMENTS
+
+      - name: employees
+        identifier: EMPLOYEES
+
+      - name: entity
+        identifier: ENTITY
+
+      - name: item
+        identifier: ITEM
+
+      - name: locations
+        identifier: LOCATIONS
+
+      - name: subsidiaries
+        identifier: SUBSIDIARIES
+
+      - name: transaction_accounting_line
+        identifier: TRANSACTION_ACCOUNTING_LINE
+
+      - name: transaction_lines
+        identifier: TRANSACTION_LINES
+
+      - name: transactions
+        identifier: TRANSACTIONS
+
+      - name: transaction_status
+        identifier: TRANSACTION_STATUS

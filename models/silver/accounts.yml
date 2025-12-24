@@ -1,0 +1,44 @@
+
+version: 2
+
+models:
+  - name: accounts
+    description: "NetSuite accounts (Silver layer)."
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: account_id
+        data_type: number
+        tests: [not_null, unique]
+      - name: class_id
+        data_type: number
+      - name: currency_id
+        data_type: number
+      - name: department_id
+        data_type: number
+      - name: location_id
+        data_type: number
+      - name: parent_id
+        data_type: number
+      - name: subsidiary_id
+        data_type: number
+      - name: account_number
+        data_type: varchar
+      - name: account_description
+        data_type: varchar
+      - name: display_name
+        data_type: varchar
+      - name: display_name_with_hierarchy
+        data_type: varchar
+      - name: is_inactive
+        data_type: boolean
+      - name: account_name
+        data_type: varchar
+      - name: account_type
+        data_type: varchar
+      - name: last_modified_date
+        data_type: timestamp_ntz
+        tests: [not_null]
+      - name: silver_load_date
+        data_type: timestamp_ntz

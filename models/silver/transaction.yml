@@ -1,0 +1,78 @@
+
+version: 2
+
+models:
+  - name: transaction
+    description: "NetSuite transaction (Silver layer)."
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: TRANSACTION_ID
+        data_type: number
+        tests: [not_null, unique]
+      - name: POSTING_PERIOD_ID
+        data_type: number
+      - name: TRANSACTION_STATUS_ID
+        data_type: number
+      - name: EMPLOYEE_ID
+        data_type: number
+      - name: SOURCE_TRANSACTION
+        data_type: number
+      - name: CURRENCY_ID
+        data_type: number
+      - name: INTERNAL_ENTITY_ID
+        data_type: number
+      - name: LOCATION_ID
+        data_type: number
+      - name: PARTNER_ID
+        data_type: number
+      - name: PAYMENT_METHOD_ID
+        data_type: number
+      - name: TRANSACTION_SESSION_VIN
+        data_type: number
+      - name: BILLING_ADDRESS_ID
+        data_type: varchar
+      - name: SESSION_SHOP_EMAIL
+        data_type: varchar
+      - name: MEMO
+        data_type: varchar
+      - name: SHIPPING_ADDRESS_ID
+        data_type: varchar
+      - name: BILLING_STATUS
+        data_type: varchar
+      - name: TITLE
+        data_type: varchar
+      - name: TRAN_ID
+        data_type: varchar
+      - name: TRANSACTION_NUMBER
+        data_type: varchar
+      - name: TRANSACTION_SESSION_RO
+        data_type: varchar
+      - name: SOURCE
+        data_type: varchar
+      - name: TRANSACTION_TYPE
+        data_type: varchar
+      - name: RECORD_TYPE
+        data_type: varchar
+      - name: AMOUNT_UNBILLED
+        data_type: number
+      - name: EXCHANGE_RATE
+        data_type: number
+      - name: CLOSE_DATE
+        data_type: timestamp_ntz
+      - name: CREATED_DATE
+        data_type: timestamp_ntz
+      - name: LAST_MODIFIED_DATE
+        data_type: timestamp_ntz
+        tests: [not_null]
+      - name: DUE_DATE
+        data_type: timestamp_ntz
+      - name: END_DATE
+        data_type: timestamp_ntz
+      - name: START_DATE
+        data_type: timestamp_ntz
+      - name: TRAN_DATE
+        data_type: timestamp_ntz
+      - name: SILVER_LOAD_DATE
+        data_type: timestamp_ntz

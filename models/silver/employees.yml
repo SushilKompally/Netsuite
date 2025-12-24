@@ -1,0 +1,45 @@
+
+version: 2
+
+models:
+  - name: employees
+    config:
+      contract:
+        enforced: true
+    columns:
+    
+      - name: employee_id
+        data_type: number
+        tests: [not_null, unique]
+      - name: class_id
+        data_type: number
+      - name: currency
+        data_type: number
+      - name: department_id
+        data_type: number
+      - name: location_id
+        data_type: number
+      - name: employee_type_id
+        data_type: number
+      - name: subsidiary
+        data_type: number
+      - name: entity_id
+        data_type: varchar
+      - name: account_number
+        data_type: varchar
+      - name: email
+        data_type: varchar
+      - name: is_inactive
+        data_type: boolean
+      - name: job_description
+        data_type: varchar
+      - name: employee_status_id
+        data_type: varchar
+      - name: title
+        data_type: varchar
+      - name: date_created
+        data_type: date
+      - name: last_modified_date
+        data_type: timestamp_ntz
+      - name: silver_load_date
+        data_type: timestamp_ntz

@@ -46,15 +46,15 @@ vars:
     source_record_creation_column: "{{ env_var('RECORD_CREATION_COLUMN', 'lastupdated') }}"
     silver_target_timestamp_col: "{{ env_var('TARGET_TIMESTAMP_COL', 'last_updated') }}"
 
-    source_database_name: netsuite_db
+    source_database_name: netsuitetest_db
     source_instances:
       - netsuite1:
-        - source_database_name: netsuite_db
-        - source_schema_name: netsuite1
+        - source_database_name: netsuitetest_db
+        - source_schema_name: test1
         - tool_name: fivetran
       - nestusite2:
-        - source_database_name: nestuite_db
-        - source_schema_name: nestuite2
+        - source_database_name: nestuitetest_db
+        - source_schema_name: test2
         - tool_name: stitch
 
 models:

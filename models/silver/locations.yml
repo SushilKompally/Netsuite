@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+  - name: locations
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: location_id
+        data_type: number
+        tests: [not_null, unique]
+      - name: parent
+        data_type: number
+      - name: subsidiary_id
+        data_type: number
+      - name: location_type
+        data_type: number
+      - name: location_full_name
+        data_type: varchar
+      - name: location_name
+        data_type: varchar
+      - name: is_inactive
+        data_type: boolean
+      - name: latitude
+        data_type: varchar  
+      - name: longitude
+        data_type: varchar   
+      - name: last_modified_date
+        data_type: timestamp_ntz
+      - name: silver_load_date
+        data_type: timestamp_ntz
