@@ -1,0 +1,71 @@
+
+version: 2
+
+models:
+  - name: dim_account
+    description: "Dimension table combining account, classification, and subsidiary details."
+    columns:
+      - name: account_id
+        description: "Primary key for the account."
+        tests:
+          - not_null
+          - unique
+
+      - name: class_id
+        description: "Foreign key referencing classification."
+
+      - name: currency_id
+        description: "Currency ID for the account (coalesced from account or subsidiary)."
+
+      - name: department_id
+        description: "Department associated with the account."
+
+      - name: location_id
+        description: "Location associated with the account."
+
+      - name: account_parent_id
+        description: "Parent account ID."
+
+      - name: subsidiary_id
+        description: "Subsidiary ID (coalesced from account or subsidiary)."
+
+      - name: account_number
+        description: "Account number."
+
+      - name: account_description
+        description: "Description of the account."
+
+      - name: display_name
+        description: "Display name of the account."
+
+      - name: display_name_with_hierarchy
+        description: "Display name including hierarchy."
+
+      - name: account_name
+        description: "Name of the account."
+
+      - name: account_type
+        description: "Type of the account."
+
+      - name: subsidiary_name
+        description: "Name of the subsidiary."
+
+      - name: subsidiary_full_name
+        description: "Full name of the subsidiary."
+
+      - name: subsidiary_parent_id
+        description: "Parent ID of the subsidiary."
+
+      - name: class_full_name
+        description: "Full name of the classification."
+
+      - name: class_name
+        description: "Name of the classification."
+
+      - name: classification_parent
+        description: "Parent classification."
+
+      - name: last_modified_date
+        description: "Last modified timestamp for the account."
+        tests:
+          - not_null

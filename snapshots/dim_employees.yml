@@ -1,0 +1,59 @@
+
+version: 2
+
+models:
+  - name: dim_employee
+    description: "Dimension table for employees."
+    columns:
+      - name: employee_id
+        description: "Primary key for the employee."
+        tests:
+          - not_null
+          - unique
+
+      - name: entity_id
+        description: "Associated entity ID for the employee."
+
+      - name: email
+        description: "Email address of the employee."
+
+      - name: title
+        description: "Job title of the employee."
+
+      - name: job_description
+        description: "Description of the employee's job role."
+
+      - name: class_id
+        description: "Classification ID for the employee."
+
+      - name: currency
+        description: "Currency associated with the employee."
+
+      - name: department_id
+        description: "Department ID where the employee belongs."
+
+      - name: date_created
+        description: "Date when the employee record was created."
+
+      - name: employee_type_id
+        description: "Type identifier for the employee."
+
+      - name: account_number
+        description: "Account number linked to the employee."
+
+      - name: location_id
+        description: "Location ID associated with the employee."
+
+      - name: employee_status_id
+        description: "Status identifier for the employee."
+
+      - name: is_inactive
+        description: "Indicates if the employee is inactive."
+
+      - name: subsidiary
+        description: "Subsidiary associated with the employee."
+
+      - name: last_modified_date
+        description: "Last modified timestamp for the employee record."
+        tests:
+          - not_null

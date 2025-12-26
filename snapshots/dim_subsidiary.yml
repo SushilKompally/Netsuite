@@ -1,0 +1,30 @@
+
+version: 2
+
+models:
+  - name: dim_subsidiary
+    description: "Dimension table for subsidiaries."
+    columns:
+      - name: subsidiary_id
+        description: "Primary key for the subsidiary."
+        tests:
+          - not_null
+          - unique
+
+      - name: currency_id
+        description: "Currency associated with the subsidiary."
+
+      - name: subsidiary_full_name
+        description: "Full name of the subsidiary including hierarchy."
+
+      - name: is_inactive
+        description: "Indicates if the subsidiary is inactive."
+
+      - name: subsidiary_name
+        description: "Name of the subsidiary."
+
+      - name: parent_id
+        description: "Parent subsidiary ID."
+
+      - name: silver_load_date
+        description: "ETL pipeline load timestamp for the subsidiary record."
