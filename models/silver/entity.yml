@@ -28,8 +28,7 @@ models:
         data_type: varchar
       - name: entity_id
         data_type: varchar 
-      - name: entity_number
-        data_type: number
+      
       - name: entity_title
         data_type: varchar
       - name: first_name
@@ -43,7 +42,7 @@ models:
       - name: is_person
         data_type: boolean
       - name: date_created
-        data_type: date
+        data_type: timestamp_ntz
       - name: last_modified_date
         data_type: timestamp_ntz
       - name: silver_load_date
