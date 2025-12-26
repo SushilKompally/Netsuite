@@ -1,0 +1,41 @@
+
+version: 2
+
+models:
+  - name: dim_location
+    description: "Dimension table for locations."
+    columns:
+      - name: location_id
+        description: "Primary key for the location."
+        tests:
+          - not_null
+          - unique
+
+      - name: location_name
+        description: "Name of the location."
+
+      - name: location_full_name
+        description: "Full name of the location including hierarchy."
+
+      - name: is_inactive
+        description: "Indicates if the location is inactive."
+
+      - name: last_modified_date
+        description: "Last modified timestamp for the location record."
+        tests:
+          - not_null
+
+      - name: latitude
+        description: "Latitude coordinate of the location."
+
+      - name: longitude
+        description: "Longitude coordinate of the location."
+
+      - name: location_type
+        description: "Type of the location."
+
+      - name: parent
+        description: "Parent location ID."
+
+      - name: subsidiary_id
+        description: "Subsidiary associated with the location."

@@ -1,0 +1,117 @@
+
+version: 2
+
+models:
+  - name: dim_item
+    description: "Dimension table for items including costing, classification, and inventory details."
+    columns:
+      - name: item_id
+        description: "Primary key for the item."
+        tests:
+          - not_null
+          - unique
+
+      - name: average_cost
+        description: "Average cost of the item."
+
+      - name: class_id
+        description: "Classification ID for the item."
+
+      - name: cost
+        description: "Cost of the item."
+
+      - name: costing_method
+        description: "Costing method used for the item."
+
+      - name: created_date
+        description: "Date when the item record was created."
+
+      - name: department_id
+        description: "Department associated with the item."
+
+      - name: description
+        description: "Description of the item."
+
+      - name: display_name
+        description: "Display name of the item."
+
+      - name: item_full_name
+        description: "Full name of the item including hierarchy."
+
+      - name: income_account
+        description: "Income account linked to the item."
+
+      - name: is_ful_fillable
+        description: "Indicates if the item is fulfillable."
+
+      - name: is_inactive
+        description: "Indicates if the item is inactive."
+
+      - name: item_name
+        description: "Name of the item."
+
+      - name: item_type
+        description: "Type of the item."
+
+      - name: last_modified_date
+        description: "Last modified timestamp for the item record."
+        tests:
+          - not_null
+
+      - name: last_purchase_price
+        description: "Last purchase price of the item."
+
+      - name: location_id
+        description: "Location associated with the item."
+
+      - name: manufacturer
+        description: "Manufacturer of the item."
+
+      - name: maximum_quantity
+        description: "Maximum quantity allowed for the item."
+
+      - name: parent_id
+        description: "Parent item ID."
+
+      - name: pricing_group
+        description: "Pricing group associated with the item."
+
+      - name: total_quantity_on_hand
+        description: "Total quantity of the item on hand."
+
+      - name: sale_unit
+        description: "Sale unit for the item."
+
+      - name: shipping_cost
+        description: "Shipping cost for the item."
+
+      - name: stock_unit
+        description: "Stock unit for the item."
+
+      - name: store_description
+        description: "Store description for the item."
+
+      - name: store_detailed_description
+        description: "Detailed store description for the item."
+
+      - name: store_display_name
+        description: "Store display name for the item."
+
+      - name: subsidiary_id
+        description: "Subsidiary associated with the item."
+
+      - name: sub_type
+        description: "Subtype of the item."
+
+      - name: total_value
+        description: "Total value of the item."
+
+      - name: units_type
+        description: "Units type for the item."
+
+      - name: vendor_name
+        description: "Vendor name associated with the item."
+
+      - name: weight
+        description: "Weight of the item."
+
