@@ -14,7 +14,7 @@
 
 {{ config(
     unique_key='subsidiary_id',
-    incremental_strategy='merge',
+    incremental_strategy='merge'
 ) }}
 
 WITH raw AS (
