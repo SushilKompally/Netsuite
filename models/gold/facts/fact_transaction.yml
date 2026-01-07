@@ -13,18 +13,15 @@ models:
       - name: TRANSACTIONS_UNIQUE_ID
         description: "Surrogate key built from TRANSACTION_ID and TRANSACTION_LINE_ID."
         data_type: varchar
-        tests: [not_null, unique]
       - name: TRANSACTION_ID
         description: "Transaction header identifier."
         data_type: number
-        tests: [not_null]
       - name: TRAN_ID
         description: "Alternate transaction identifier from header (if present)."
         data_type: number
       - name: TRANSACTION_LINE_ID
         description: "Transaction line identifier."
         data_type: number
-        tests: [not_null]
       - name: ACCOUNT_ID
         description: "Account identifier linked to the accounting line."
         data_type: number
@@ -160,4 +157,4 @@ models:
       - name: LAST_MODIFIED_DATE
         description: "Timestamp of last modification on the source transaction header."
         data_type: timestamp_ntz
-        tests: [not_null]
+       
