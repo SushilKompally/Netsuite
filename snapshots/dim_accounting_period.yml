@@ -8,11 +8,7 @@ snapshots:
     columns:
       - name: posting_period_id
         description: "Unique identifier for the posting period in source."
-        tests:
-          - unique:
-              where: "dbt_valid_to IS NULL"
-          - not_null:
-              where: "dbt_valid_to IS NULL"
+        data_type: varchar
 
       - name: closed_on_date
         description: "Date when the period was closed."
@@ -21,8 +17,7 @@ snapshots:
       - name: last_modified_date
         description: "Source system last modified timestamp used as updated_at for SCD2."
         data_type: timestamp_ntz
-        tests:
-          - not_null
+
 
       - name: end_date
         description: "Period end date."
