@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - locations Table
 -- Script Name: silver_locations.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='location_id',
@@ -47,7 +47,7 @@ SELECT
     {{ clean_string('longitude') }}        AS longitude,    
 
     -- DATES / TIMESTAMPS
-    lastmodifieddate    AS last_modified_date,
+    {{ safe_date('lastmodifieddate') }}    AS last_modified_date,
 
     -- AUDIT / METADATA
     CURRENT_TIMESTAMP()::TIMESTAMP_NTZ     AS silver_load_date

@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - transaction_accounting_line table
 -- Script Name: transaction_accounting_line.sql
 -- Created on: 24-Dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     24-Dec-2025 - Initial creation - Sushil Komp--     24-Dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='transaction_line_id',
@@ -34,7 +34,7 @@ cleaned AS (
         -- PRIMARY KEY
         {{ safe_integer('transactionLine') }}      AS transaction_line_id,
 
-        -- FOREIGN KEYS / REFERENCES
+        -- FOREIGN KEYS 
         {{ safe_integer('account') }}              AS account_id,
         {{ safe_integer('transaction') }}          AS transaction_id,
         {{ safe_integer('accountingBook') }}       AS accounting_book_id,
@@ -46,10 +46,10 @@ cleaned AS (
         {{ safe_integer('amountUnpaid') }}         AS amount_Un_paid,
         {{ safe_integer('exchangeRate') }}         AS exchange_rate,
         {{ safe_integer('netAmount') }}            AS net_Amount,
-        posting                                   AS transaction_accounting_posting_flag,
+        {{ clean_string ('posting') }}           AS transaction_accounting_posting_flag,
 
         -- DATES / TIMESTAMPS
-      lastModifiedDate  AS LAST_MODIFIED_DATE,
+        {{ safe_date('lastModifiedDate') }}  AS LAST_MODIFIED_DATE,
 
         -- AUDIT / METADATA
         current_timestamp()::timestamp_ntz         AS SILVER_LOAD_DATE

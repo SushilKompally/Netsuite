@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - currencyrates Table
 -- Script Name: silver_currencyrates.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='currency_rate_id',

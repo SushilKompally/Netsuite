@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - consolidated_exchange_rates Table
 -- Script Name: silver_consolidated_exchange_rates.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='consolidated_exchange_rate_id',
@@ -32,7 +32,7 @@ cleaned AS (
 
 SELECT
     -- PRIMARY KEY
-    {{ safe_integer('consolidated_exchange_rate_id') }} AS consolidated_exchange_rate_id,
+    {{ clean_string('consolidated_exchange_rate_id') }} AS consolidated_exchange_rate_id,
 
     -- FOREIGN KEYS
     {{ safe_integer('accounting_book_id') }}  AS accounting_book_id,

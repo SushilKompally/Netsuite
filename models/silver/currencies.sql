@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - currencies Table
 -- Script Name: silver_currencies.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='currency_id',
@@ -36,7 +36,7 @@ SELECT
     {{ safe_integer('currency_id') }}         AS currency_id,
 
     -- DATES
-    date_last_modified     AS last_modified_date,
+    {{safe_date('date_last_modified')}}     AS last_modified_date,
 
     -- DETAILS / FLAGS
     {{ safe_integer('exchangeRate') }}        AS exchange_rate,         -- INT as requested

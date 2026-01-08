@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - entity Table
 -- Script Name: silver_entity.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='internal_entity_id',
@@ -54,8 +54,8 @@ SELECT
     {{ safe_boolean('isperson') }}           AS is_person,
 
     -- DATES / TIMESTAMPS
-    datecreated           AS date_created,
-    lastmodifieddate      AS last_modified_date,
+   {{ safe_date('datecreated') }}           AS date_created,
+   {{safe_date('lastmodifieddate') }}      AS last_modified_date,
 
     -- AUDIT / METADATA
     CURRENT_TIMESTAMP()::TIMESTAMP_NTZ       AS silver_load_date

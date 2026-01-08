@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - departments Table
 -- Script Name: silver_departments.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='department_id',
@@ -31,9 +31,7 @@ WITH raw AS (
 cleaned AS (
 
 SELECT
-    -- DATES
-    date_last_modified   AS last_modified_date,
-
+   
     -- KEYS
     {{ safe_integer('department_id') }}     AS department_id,
     {{ safe_integer('parent_id') }}         AS parent,
@@ -42,6 +40,9 @@ SELECT
     {{ clean_string('full_name') }}         AS department_full_name,
     {{ safe_boolean('isinactive') }}        AS is_inactive,
     {{ clean_string('name') }}              AS department_name,
+
+    -- DATES
+    {{safe_date(date_last_modified )}}  AS last_modified_date,
 
     -- AUDIT
     CURRENT_TIMESTAMP()                     AS silver_load_date
