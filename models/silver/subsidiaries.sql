@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - subsidiaries Table
 -- Script Name: silver_locations.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='subsidiary_id',
@@ -37,7 +37,7 @@ SELECT
    -- DETAILS
    {{ safe_integer('base_currency_id') }}           AS CURRENCY_ID,
    {{ clean_string('full_name') }}                  AS SUBSIDIARY_FULL_NAME,
-   isinactive                                       AS IS_INACTIVE,
+   {{ safe_boolean('isinactive') }}            AS IS_INACTIVE,
    {{ clean_string('name') }}                       AS SUBSIDIARY_NAME,
    {{ safe_integer('parent_id') }}                  AS PARENT_ID,
 

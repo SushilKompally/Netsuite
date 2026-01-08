@@ -3,33 +3,46 @@ version: 2
 
 models:
   - name: subsidiary
-    description: "NetSuite subsidiary (Silver layer)."
+    description: "Dimension table for NetSuite subsidiaries in the Silver layer, including hierarchy, currency, and audit metadata."
     config:
       contract:
         enforced: true
+
     columns:
-      - name: SUBSIDIARY_ID
+      - name: subsidiary_id
+        description: "Unique identifier for the subsidiary record."
         data_type: number
-        tests: [not_null, unique]
-
-      - name: CURRENCY_ID
+        tests:
+          - not_null
+          - unique
+      - name: currency_id
+        description: "Identifier for the currency associated with the subsidiary."
         data_type: number
-
-      - name: SUBSIDIARY_FULL_NAME
+        tests:
+          - relationships:
+              to: ref('currencies')
+              field: currency_id
+      - name: parent_id
+        description: "Identifier for the parent subsidiary in the hierarchy."
+        data_type: number
+        tests:
+          - relationships:
+              to: ref('subsidiary')
+              field: subsidiary_id
+      - name: subsidiary_full_name
+        description: "Full hierarchical name of the subsidiary."
         data_type: varchar
-
-      - name: IS_INACTIVE
+      - name: subsidiary_name
+        description: "Short name of the subsidiary."
+        data_type: varchar
+      - name: is_inactive
+        description: "Flag indicating whether the subsidiary is inactive."
         data_type: boolean
-
-      - name: SUBSIDIARY_NAME
-        data_type: varchar
-
-      - name: PARENT_ID
-        data_type: number
-
-      - name: LAST_MODIFIED_DATE
+      - name: last_modified_date
+        description: "Timestamp of the last modification in the source system."
         data_type: timestamp_ntz
-        tests: [not_null]
-
-      - name: SILVER_LOAD_DATE
+        tests:
+          - not_null
+      - name: silver_load_date
+        description: "Timestamp when the record was loaded into the Silver layer."
         data_type: timestamp_ntz

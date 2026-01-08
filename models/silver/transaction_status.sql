@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - transaction_status table
 -- Script Name: transaction_status.sql
 -- Created on: 24-Dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     24-Dec-2025 - Initial creation - Sushil Komp--     24-Dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='transaction_status_id',
@@ -42,7 +42,7 @@ cleaned AS (
         {{ clean_string('TRANSACTION_TYPE') }}             AS transaction_type,
 
         -- TIMESTAMPS / METADATA
-        INGESTION_TIME       AS ingestion_time,
+        {{ safe_date('INGESTION_TIME') }}       AS ingestion_time,
         current_timestamp()::timestamp_ntz         AS silver_load_date
 
     FROM raw

@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - transaction table
 -- Script Name: transaction.sql
 -- Created on: 24-Dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     24-Dec-2025 - Initial creation - Sushil Komp--     24-Dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='transaction_id',
@@ -67,13 +67,15 @@ SELECT
     {{ safe_integer('exchange_rate') }}                     AS exchange_rate,
 
     -- DATES / TIMESTAMPS (Snowflake-safe)
-    closed                        AS close_date,
-    create_date                    AS created_date,
-    date_last_modified              AS last_modified_date,
-    due_date                      AS due_date,
-    end_date                        AS end_date,
-    start_date                      AS start_date,
-    trandate                       AS tran_date,
+    
+    {{ safe_date('closed') }}           AS close_date,
+    {{ safe_date('create_date') }}      AS created_date,
+    {{ safe_date('date_last_modified') }} AS last_modified_date,
+    {{ safe_date('due_date') }}         AS due_date,
+    {{ safe_date('end_date') }}         AS end_date,
+    {{ safe_date('start_date') }}       AS start_date,
+    {{ safe_date('trandate') }}         AS tran_date,
+
     -- AUDIT / METADATA
     current_timestamp()::timestamp_ntz         AS silver_load_date
 

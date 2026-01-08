@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - employees Table
 -- Script Name: silver_employees.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='employee_id',
@@ -52,8 +52,8 @@ SELECT
     {{ clean_string('title') }}                    AS title,
 
     -- DATES / TIMESTAMPS
-    create_date            AS date_created,
-    last_modified_date        AS last_modified_date,
+    {{ safe_date('create_date')}}            AS date_created,
+    {{ safe_date('last_modified_date')}}        AS last_modified_date,
 
     -- AUDIT / METADATA
     CURRENT_TIMESTAMP()::TIMESTAMP_NTZ   AS silver_load_date

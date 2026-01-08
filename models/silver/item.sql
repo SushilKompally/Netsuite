@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - item Table
 -- Script Name: silver_items.sql
 -- Created on: 23-dec-2025
@@ -9,7 +9,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='item_id',
@@ -70,8 +70,8 @@ SELECT
     {{ safe_integer('quantityonhand') }}         AS total_quantity_on_hand,
 
     -- DATES / TIMESTAMPS
-    createddate           AS created_date,
-    lastmodifieddate    AS last_modified_date,
+    {{ safe_date('createddate') }}           AS created_date,
+    {{ safe_date('lastmodifieddate') }}    AS last_modified_date,
 
     -- AUDIT / METADATA
     CURRENT_TIMESTAMP()::TIMESTAMP_NTZ       AS silver_load_date

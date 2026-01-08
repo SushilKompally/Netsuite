@@ -1,5 +1,5 @@
 
-/*
+{#
 -- Description: Incremental Load Script for Silver Layer - accounting_period Table
 -- Script Name: silver_accounting_period.sql
 -- Created on: 23-dec-2025
@@ -10,7 +10,7 @@
 -- Data source version: v62.0
 -- Change History:
 --     23-dec-2025 - Initial creation - Sushil Kompally
-*/
+#}
 
 {{ config(
     unique_key='account_id',
@@ -54,7 +54,7 @@ SELECT
     {{ clean_string('type_name') }}          AS account_type,
 
     -- DATES / TIMESTAMPS
-   date_last_modified    AS last_modified_date,
+   {{ safe_date('date_last_modified')}}    AS last_modified_date,
 
     -- AUDIT
     CURRENT_TIMESTAMP()                      AS silver_load_date
